@@ -3,6 +3,8 @@
 from .osm import osm_map, osm_url
 from .gmaps import gmaps_url
 
+__version__ = "0.1.0"
+
 def filters():
     return dict(
         gmaps_url=gmaps_url,
