@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from .base import urlencode, map_filter
+from .base import urlencode, map_filter, url_filter
 from jinja2 import Markup, escape
 
 _osm_default_attrs = dict(
@@ -46,8 +46,8 @@ def osm_map(eval_ctx, loc, **kw):
         return Markup(iframe)
     return iframe
 
-@map_filter
-def osm_url(eval_ctx, loc, zoom=16):
+@url_filter
+def osm_url(loc, zoom=16):
     """
     Given a dict-like with ``latitude`` and ``longitude`` attributes write an
     OpenStreetMap URL for this location.
@@ -55,7 +55,5 @@ def osm_url(eval_ctx, loc, zoom=16):
     lat = loc["latitude"]
     lng = loc["longitude"]
 
-    url = "http://www.openstreetmap.org/?mlat=%f&amp;mlon=%f#map=%d/%f/%f" % (
+    return "http://www.openstreetmap.org/?mlat=%f&amp;mlon=%f#map=%d/%f/%f" % (
         lat, lng, zoom, lat, lng)
-
-    return url

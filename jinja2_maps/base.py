@@ -30,18 +30,30 @@ def _normalize_location(loc):
 
     return d
 
+def _copy_function_attrs(origin, target):
+    target.__name__ = origin.__name__
+    target.__doc__ = origin.__doc__
+
+def url_filter(fn):
+    """
+    Wrap a function as a filter that returns an URL.
+    """
+    def _filter(loc, *args, **kw):
+        return fn(_normalize_location(loc), *args, **kw)
+
+    _copy_function_attrs(fn, _filter)
+    return _filter
+
 def map_filter(fn):
     """
-    Wrap a function as a filter.
+    Wrap a function as a filter that returns HTML to display a map.
     """
 
     @evalcontextfilter
     def _filter(eval_ctx, loc, *args, **kw):
         return fn(eval_ctx, _normalize_location(loc), *args, **kw)
 
-    _filter.__name__ = fn.__name__
-    _filter.__doc__ = fn.__doc__
-
+    _copy_function_attrs(fn, _filter)
     return _filter
 
 # silent Pyflakes
