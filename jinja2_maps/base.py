@@ -11,7 +11,8 @@ def _normalize_location(loc):
     """
     Return a dictionary that represents the given location. If it's already a
     dictionary it's returned as-is but if not we try different attributes to
-    get the latitude and longitude.
+    get the latitude (``latitude`` or ``lat``) and longitude (``longitude``,
+    ``lng``, or ``lon``).
     """
     if isinstance(loc, dict):
         return loc
@@ -20,12 +21,12 @@ def _normalize_location(loc):
     # Try different attributes for each one
     guesses = {
         "latitude": ("latitude", "lat"),
-        "longitude": ("longitude", "lng", "long", "lon"),
+        "longitude": ("longitude", "lng", "lon"),
     }
     for attr, ks in guesses.items():
         for k in ks:
             if hasattr(loc, k):
-                d[attr] = getattr(loc, k)
+                d[attr] = float(getattr(loc, k))
                 break
 
     return d
