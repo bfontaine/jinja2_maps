@@ -55,5 +55,5 @@ def osm_url(loc, zoom=16):
     lat = loc["latitude"]
     lng = loc["longitude"]
 
-    return "http://www.openstreetmap.org/?mlat=%f&amp;mlon=%f#map=%d/%f/%f" % (
+    return "https://www.openstreetmap.org/?mlat=%g&mlon=%g#map=%d/%.4f/%.4f" % (
         lat, lng, zoom, lat, lng)
