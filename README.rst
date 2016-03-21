@@ -15,7 +15,8 @@ Support
 -------
 
 =============  ===  ===
-               URL  Map
+Service        URL  Map
+=============  ===  ===
 OpenStreetMap  Yes  Yes
 Google Maps    Yes  -
 Bing Maps      -    -
@@ -46,6 +47,10 @@ URLs
 
   <a href="{{ your_location | osm_url }}">Check on OpenStreetMap</a>
   <a href="{{ your_location | gmaps_url }}">Check on Google Maps</a>
+
+URLs also support giving the zoom level (default is ``16``): ::
+
+  <a href="{{ your_location | osm_url(zoom=12) }}">Check on OpenStreetMap</a>
 
 Maps
 ~~~~
