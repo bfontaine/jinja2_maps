@@ -22,7 +22,8 @@ ROOT = "https://www.openstreetmap.org"
 URL_FMT = "{root}/?mlat={lat:g}&mlon={lng:g}#map={zoom}/{lat:.4f}/{lng:.4f}"
 MAP_FMT = '<iframe {attrs} src="{root}/export/embed.html?{params}"></iframe>'
 
-osm_url = _make_url_filter("osm_url", "OpenStreetMap", URL_FMT, root=ROOT)
+osm_url = _make_url_filter("osm_url", "OpenStreetMap", URL_FMT, root=ROOT,
+        zoom=16)
 
 @map_filter
 def osm_map(eval_ctx, loc, **kw):
