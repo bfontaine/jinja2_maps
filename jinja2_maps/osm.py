@@ -17,6 +17,12 @@ _osm_default_attrs = dict(
 LAT_PADDING = 0.00333
 LNG_PADDING = 0.0063589
 
+ROOT = "https://www.openstreetmap.org"
+
+URL_FMT = "{root}/?mlat={lat:g}&mlon={lng:g}#map={zoom}/{lat:.4f}/{lng:.4f}"
+MAP_FMT = '<iframe {attrs} src="{root}/export/embed.html?{params}"></iframe>'
+
+
 @map_filter
 def osm_map(eval_ctx, loc, **kw):
     lat = loc["latitude"]
@@ -37,14 +43,13 @@ def osm_map(eval_ctx, loc, **kw):
     html_attrs = " ".join(
             ['%s="%s"' % (escape(k), escape(v)) for k, v in attrs.items()])
 
-    iframe = '<iframe %s src="http://www.openstreetmap.org/export/embed.html?%s"></iframe>' % (
-        html_attrs,
-        urlencode(params),
-    )
+    iframe = MAP_FMT.format(
+            attrs=html_attrs, params=urlencode(params), root=ROOT)
 
     if eval_ctx.autoescape:
         return Markup(iframe)
     return iframe
+
 
 @url_filter
 def osm_url(loc, zoom=16):
@@ -52,8 +57,5 @@ def osm_url(loc, zoom=16):
     Given a dict-like with ``latitude`` and ``longitude`` attributes write an
     OpenStreetMap URL for this location.
     """
-    lat = loc["latitude"]
-    lng = loc["longitude"]
-
-    return "https://www.openstreetmap.org/?mlat=%g&mlon=%g#map=%d/%.4f/%.4f" % (
-        lat, lng, zoom, lat, lng)
+    return URL_FMT.format(
+            lat=loc["latitude"], lng=loc["longitude"], zoom=zoom, root=ROOT)

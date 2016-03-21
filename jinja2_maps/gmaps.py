@@ -2,6 +2,7 @@
 
 from .base import url_filter
 
+
 @url_filter
 def gmaps_url(loc, zoom=16):
     """

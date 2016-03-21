@@ -7,6 +7,7 @@ except ImportError:  # Python 3
 
 from jinja2 import evalcontextfilter
 
+
 def _normalize_location(loc):
     """
     Return a dictionary that represents the given location. If it's already a
@@ -31,9 +32,11 @@ def _normalize_location(loc):
 
     return d
 
+
 def _copy_function_attrs(origin, target):
     target.__name__ = origin.__name__
     target.__doc__ = origin.__doc__
+
 
 def url_filter(fn):
     """
@@ -44,6 +47,7 @@ def url_filter(fn):
 
     _copy_function_attrs(fn, _filter)
     return _filter
+
 
 def map_filter(fn):
     """
@@ -56,6 +60,7 @@ def map_filter(fn):
 
     _copy_function_attrs(fn, _filter)
     return _filter
+
 
 # silent Pyflakes
 if False:
