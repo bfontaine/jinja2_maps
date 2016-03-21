@@ -35,12 +35,16 @@ All filters take a location as a dict with ``latitude`` and ``longitude`` keys.
 You can also pass an object with these attributes.
 
 Before using any template you need to add the filters to your Jinja2
-environment: ::
+environment:
+
+.. code-block:: python
 
   from jinja2_maps import activate_filters
   activate_filters(your_env)
 
-If using Flask you can do the following: ::
+If using Flask you can do the following:
+
+.. code-block:: python
 
   from jinja2_maps import activate_filters
   activate_filters(app.jinja_env)
@@ -48,18 +52,20 @@ If using Flask you can do the following: ::
 URLs
 ~~~~
 
-::
+.. code-block:: html+jinja
 
   <a href="{{ your_location | osm_url }}">Check on OpenStreetMap</a>
   <a href="{{ your_location | gmaps_url }}">Check on Google Maps</a>
 
-URLs also support giving the zoom level (default is ``16``): ::
+URLs also support giving the zoom level (default is ``16``):
+
+.. code-block:: html+jinja
 
   <a href="{{ your_location | osm_url(zoom=12) }}">Check on OpenStreetMap</a>
 
 Maps
 ~~~~
 
-::
+.. code-block:: html+jinja
 
   {{ your_location | osm_map(width=500, height=400) }}
