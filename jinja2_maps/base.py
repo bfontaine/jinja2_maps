@@ -33,20 +33,25 @@ def _normalize_location(loc):
     return d
 
 
+def _make_url_filter(name, service, fmt, **args):
+    def _filter(loc, **kw):
+        loc = _normalize_location(loc)
+
+        params = dict(args)
+        params.update(kw)
+
+        return fmt.format(lat=loc["latitude"], lng=loc["longitude"], **params)
+
+    _filter.__name__ = name
+    _filter.__doc__ = """
+        Write a URL for {service} from a dict with latitude/longitude keys.
+    """.format(service=service)
+
+    return _filter
+
 def _copy_function_attrs(origin, target):
     target.__name__ = origin.__name__
     target.__doc__ = origin.__doc__
-
-
-def url_filter(fn):
-    """
-    Wrap a function as a filter that returns an URL.
-    """
-    def _filter(loc, *args, **kw):
-        return fn(_normalize_location(loc), *args, **kw)
-
-    _copy_function_attrs(fn, _filter)
-    return _filter
 
 
 def map_filter(fn):
@@ -58,7 +63,8 @@ def map_filter(fn):
     def _filter(eval_ctx, loc, *args, **kw):
         return fn(eval_ctx, _normalize_location(loc), *args, **kw)
 
-    _copy_function_attrs(fn, _filter)
+    _filter.__name__ = fn.__name__
+    _filter.__doc__ = fn.__doc__
     return _filter
 
 

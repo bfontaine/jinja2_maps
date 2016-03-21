@@ -1,14 +1,7 @@
 # -*- coding: UTF-8 -*-
 
-from .base import url_filter
+from .base import _make_url_filter
 
-URL_FMT = "https://www.google.com/maps/place/{lat},{lon}/@{lat},{lon},{zoom}z"
+URL_FMT = "https://www.google.com/maps/place/{lat},{lng}/@{lat},{lng},{zoom}z"
 
-
-@url_filter
-def gmaps_url(loc, zoom=16):
-    """
-    Given a dict-like with ``latitude`` and ``longitude`` attributes write a
-    Google Maps URL for this location.
-    """
-    return URL_FMT.format(lat=loc["latitude"], lon=loc["longitude"], zoom=zoom)
+gmaps_url = _make_url_filter("gmaps_url", "Google Maps", URL_FMT)
