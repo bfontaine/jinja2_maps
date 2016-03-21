@@ -14,13 +14,13 @@ Install
 Support
 -------
 
-====           ===  ===
+=============  ===  ===
                URL  Map
 OpenStreetMap  Yes  Yes
 Google Maps    Yes  -
 Bing Maps      -    -
 Apple Maps     -    -
-====           ===  ===
+=============  ===  ===
 
 Usage
 -----
@@ -43,6 +43,7 @@ URLs
 ~~~~
 
 ::
+
   <a href="{{ your_location | osm_url }}">Check on OpenStreetMap</a>
   <a href="{{ your_location | gmaps_url }}">Check on Google Maps</a>
 
@@ -50,4 +51,5 @@ Maps
 ~~~~
 
 ::
+
   {{ your_location | osm_map(width=500, height=400) }}
