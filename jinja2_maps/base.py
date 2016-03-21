@@ -49,10 +49,6 @@ def _make_url_filter(name, service, fmt, **args):
 
     return _filter
 
-def _copy_function_attrs(origin, target):
-    target.__name__ = origin.__name__
-    target.__doc__ = origin.__doc__
-
 
 def map_filter(fn):
     """
@@ -67,7 +63,5 @@ def map_filter(fn):
     _filter.__doc__ = fn.__doc__
     return _filter
 
-
 # silent Pyflakes
-if False:
-    urlencode
+urlencode
