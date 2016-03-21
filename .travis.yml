@@ -1,0 +1,15 @@
+language: python
+python:
+- "2.6"
+- "2.7"
+- "3.3"
+- "3.4"
+- "3.5"
+install:
+- make deps BINPREFIX=
+- pip install coveralls
+script:
+- make covercheck BINPREFIX=
+after_success: coveralls
+notifications:
+  email: false
