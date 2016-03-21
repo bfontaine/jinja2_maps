@@ -4,6 +4,9 @@ jinja2_maps
 
 ``jinja2_maps`` is a set of filters to display locations in Jinja2 templates.
 
+.. image:: https://travis-ci.org/bfontaine/jinja2_maps.svg?branch=master
+    :target: https://travis-ci.org/bfontaine/jinja2_maps
+
 Install
 -------
 
@@ -22,6 +25,8 @@ Google Maps    Yes  -
 Bing Maps      -    -
 Apple Maps     -    -
 =============  ===  ===
+
+Both Python 2.x and 3.x are supported.
 
 Usage
 -----
