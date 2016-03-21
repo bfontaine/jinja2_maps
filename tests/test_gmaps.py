@@ -11,3 +11,8 @@ class TestGmaps(TestCase):
         self.assertEquals(url,
                 gmaps_url(dict(latitude=12.34, longitude=56.78), zoom=42))
 
+    def test_url_dict_no_zoom(self):
+        url = "https://www.google.com/maps/place/12.34,56.78/@12.34,56.78,16z"
+        self.assertEquals(url,
+                gmaps_url(dict(latitude=12.34, longitude=56.78)))
+
