@@ -24,6 +24,7 @@ OpenStreetMap  Yes  Yes
 Google Maps    Yes  -
 Apple Maps     Yes  -
 Bing Maps      Yes  -
+Mappy          Yes  -
 =============  ===  ===
 
 Both Python 2.x and 3.x are supported.

@@ -4,6 +4,7 @@ from .osm import osm_map, osm_url
 from .gmaps import gmaps_url
 from .apple_maps import apple_maps_url
 from .bing_maps import bing_maps_url
+from .mappy import mappy_url
 
 # Ensure imported functions are not exported
 __all__ = ["__version__", "filters", "activate_filters"]
@@ -18,6 +19,7 @@ def filters():
         osm_url=osm_url,
         apple_maps_url=apple_maps_url,
         bing_maps_url=bing_maps_url,
+        mappy_url=mappy_url,
     )
 
 
