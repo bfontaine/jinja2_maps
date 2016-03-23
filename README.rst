@@ -23,7 +23,7 @@ Service        URL  Map
 OpenStreetMap  Yes  Yes
 Google Maps    Yes  -
 Apple Maps     Yes  -
-Bing Maps      -    -
+Bing Maps      Yes  -
 =============  ===  ===
 
 Both Python 2.x and 3.x are supported.
@@ -57,6 +57,7 @@ URLs
   <a href="{{ your_location | osm_url }}">Check on OpenStreetMap</a>
   <a href="{{ your_location | gmaps_url }}">Check on Google Maps</a>
   <a href="{{ your_location | apple_maps_url }}">Check in Maps</a>
+  <a href="{{ your_location | bing_maps_url }}">Check on Bing Maps</a>
 
 URLs also support giving the zoom level (default is ``16``):
 
