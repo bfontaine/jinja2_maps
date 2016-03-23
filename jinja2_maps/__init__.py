@@ -9,7 +9,7 @@ from .mappy import mappy_url
 # Ensure imported functions are not exported
 __all__ = ["__version__", "filters", "activate_filters"]
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 
 
 def filters():
