@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
 
 from .osm import osm_map, osm_url
-from .urls import gmaps_url, apple_maps_url, bing_maps_url, mappy_url
+from .urls import gmaps_url, apple_maps_url, bing_maps_url, mappy_url, here_url
+from .urls import arcgis_url, wikimapia_url, yandex_maps_url
 
 # Ensure imported functions are not exported
 __all__ = ["__version__", "filters", "activate_filters"]
@@ -17,6 +18,10 @@ def filters():
         apple_maps_url=apple_maps_url,
         bing_maps_url=bing_maps_url,
         mappy_url=mappy_url,
+        arcgis_url=arcgis_url,
+        here_url=here_url,
+        wikimapia_url=wikimapia_url,
+        yandex_maps_url=yandex_maps_url,
 
         # Aliases
         google_maps_url=gmaps_url,

@@ -3,8 +3,9 @@
 from base import TestCase
 
 import jinja2_maps
-from jinja2_maps.urls import apple_maps_url, bing_maps_url, gmaps_url
-from jinja2_maps.urls import mappy_url
+from jinja2_maps.urls import apple_maps_url, bing_maps_url, gmaps_url, here_url
+from jinja2_maps.urls import mappy_url, arcgis_url, wikimapia_url
+from jinja2_maps.urls import yandex_maps_url
 
 class TestAppleMaps(TestCase):
 
@@ -76,3 +77,46 @@ class TestMappy(TestCase):
                 mappy_url(dict(latitude=12.34, longitude=56.78), locale="fr"))
 
 
+class TestArcgis(TestCase):
+
+    def test_url_filter_exists(self):
+        self.assertIn("arcgis_url", jinja2_maps.filters())
+
+    def test_url_dict(self):
+        url = "https://www.arcgis.com/home/webmap/viewer.html" \
+            "?center=56.78,12.34&level=2"
+        self.assertEquals(url,
+                arcgis_url(dict(latitude=12.34, longitude=56.78), zoom=2))
+
+
+class TestHere(TestCase):
+
+    def test_url_filter_exists(self):
+        self.assertIn("here_url", jinja2_maps.filters())
+
+    def test_url_dict(self):
+        url = "https://maps.here.com/?map=12.34,56.78,2,normal"
+        self.assertEquals(url,
+                here_url(dict(latitude=12.34, longitude=56.78), zoom=2))
+
+
+class TestWikimapia(TestCase):
+
+    def test_url_filter_exists(self):
+        self.assertIn("wikimapia_url", jinja2_maps.filters())
+
+    def test_url_dict(self):
+        url = "http://wikimapia.org/#lang=en&lat=12.34&lon=56.78&z=2&m=w"
+        self.assertEquals(url,
+                wikimapia_url(dict(latitude=12.34, longitude=56.78), zoom=2))
+
+
+class TestYandexMaps(TestCase):
+
+    def test_url_filter_exists(self):
+        self.assertIn("yandex_maps_url", jinja2_maps.filters())
+
+    def test_url_dict(self):
+        url = "https://yandex.com/maps/105075/place/?ll=12.34,56.78&z=2"
+        self.assertEquals(url,
+                yandex_maps_url(dict(latitude=12.34, longitude=56.78), zoom=2))
