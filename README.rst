@@ -25,6 +25,10 @@ Google Maps    Yes  -
 Apple Maps     Yes  -
 Bing Maps      Yes  -
 Mappy          Yes  -
+Wikimapia      Yes  -
+Yandex Maps    Yes  -
+HERE Maps      Yes  -
+ArcGIS         Yes  -
 =============  ===  ===
 
 Both Python 2.x and 3.x are supported.
@@ -60,6 +64,10 @@ URLs
   <a href="{{ your_location | apple_maps_url }}">Check in Maps</a>
   <a href="{{ your_location | bing_maps_url }}">Check on Bing Maps</a>
   <a href="{{ your_location | mappy_url }}">Check on Mappy</a>
+  <a href="{{ your_location | arcgis_url }}">Check on ArcGIS</a>
+  <a href="{{ your_location | here_url }}">Check on HERE Maps</a>
+  <a href="{{ your_location | wikimapia_url }}">Check on Wikimapia</a>
+  <a href="{{ your_location | yandex_maps_url }}">Check on Yandex Maps</a>
 
 URLs also support giving the zoom level (default is ``16``):
 
