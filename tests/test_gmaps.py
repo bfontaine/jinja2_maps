@@ -3,7 +3,7 @@
 from base import TestCase
 
 import jinja2_maps
-from jinja2_maps.gmaps import gmaps_url
+from jinja2_maps.urls import gmaps_url
 
 class TestGmaps(TestCase):
 

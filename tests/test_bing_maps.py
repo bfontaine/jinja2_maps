@@ -3,7 +3,7 @@
 from base import TestCase
 
 import jinja2_maps
-from jinja2_maps.bing_maps import bing_maps_url
+from jinja2_maps.urls import bing_maps_url
 
 class TestBingMaps(TestCase):
 

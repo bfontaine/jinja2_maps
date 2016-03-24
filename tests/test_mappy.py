@@ -3,7 +3,7 @@
 from base import TestCase
 
 import jinja2_maps
-from jinja2_maps.mappy import mappy_url
+from jinja2_maps.urls import mappy_url
 
 class TestMappy(TestCase):
 

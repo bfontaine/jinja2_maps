@@ -3,7 +3,7 @@
 from base import TestCase
 
 import jinja2_maps
-from jinja2_maps.apple_maps import apple_maps_url
+from jinja2_maps.urls import apple_maps_url
 
 class TestAppleMaps(TestCase):
 
