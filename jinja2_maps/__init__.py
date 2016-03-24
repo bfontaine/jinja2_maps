@@ -17,6 +17,9 @@ def filters():
         apple_maps_url=apple_maps_url,
         bing_maps_url=bing_maps_url,
         mappy_url=mappy_url,
+
+        # Aliases
+        google_maps_url=gmaps_url,
     )
 
 
