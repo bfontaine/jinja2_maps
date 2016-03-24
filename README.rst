@@ -21,14 +21,14 @@ Support
 Service        URL  Map
 =============  ===  ===
 OpenStreetMap  Yes  Yes
-Google Maps    Yes  -
-Apple Maps     Yes  -
-Bing Maps      Yes  -
-Mappy          Yes  -
-Wikimapia      Yes  -
-Yandex Maps    Yes  -
-HERE Maps      Yes  -
-ArcGIS         Yes  -
+Google Maps    Yes
+Apple Maps     Yes
+Bing Maps      Yes
+Mappy          Yes
+Wikimapia      Yes
+Yandex Maps    Yes
+HERE Maps      Yes
+ArcGIS         Yes
 =============  ===  ===
 
 Both Python 2.x and 3.x are supported.
