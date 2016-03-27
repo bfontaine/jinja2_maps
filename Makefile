@@ -62,4 +62,4 @@ publish: stylecheck check-versions
 	rm -f README
 
 docs:
-	$(MAKE) -C docs html
+	PATH="../$(VENV)/bin:$$PATH" $(MAKE) -C docs html
