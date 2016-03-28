@@ -7,6 +7,10 @@ jinja2_maps
 .. image:: https://travis-ci.org/bfontaine/jinja2_maps.svg?branch=master
     :target: https://travis-ci.org/bfontaine/jinja2_maps
 
+.. image:: https://readthedocs.org/projects/jinja2-maps/badge/?version=latest
+    :target: http://jinja2-maps.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation Status
+
 Install
 -------
 
